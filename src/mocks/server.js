@@ -6,7 +6,7 @@ beforeEach(() => {
 });
 
 // Define mock responses for different API endpoints
-nock('https://api.github.com')
+nock('https://api.drata.com')
   .get('/users/sabitha-anasuri')
   .reply(200, {
     login: 'sanasuri',
