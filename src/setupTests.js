@@ -8,7 +8,7 @@ test('Drata users checking test case', async () => {
     ]);
 
   // Make API call using fetch or other HTTP client
-  const response = await fetch('https://api.drata.com/users');
+  const response = await fetch('https://api.demo.drata.com/users');
   // assert response data
   expect(response.fullname).toBe('Sabitha Anasuri');
   expect(response.age).toBeGreaterThan(18);
