@@ -7,12 +7,15 @@ beforeEach(() => {
 
 // Define mock responses for different API endpoints
 nock('https://api.drata.com')
-  .get('/users/sabitha-anasuri')
+  .get('/users/sabitha')
   .reply(200, {
-    login: 'sanasuri',
-    name: 'Sabitha Anasuri',
+    id: '1',
+    name: 'sabitha',
+    fullname: 'Sabitha Anasuri',
     plan: {
       name: 'Pro',
       space: 5000,
     },
+    age: '30',
+    friends: 'true'
   });
