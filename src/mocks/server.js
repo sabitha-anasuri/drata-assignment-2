@@ -1,6 +1,10 @@
 // src/mocks/server.js
 const nock = require('nock');
 
+beforeEach(() => {
+  nock.cleanAll();
+});
+
 // Define mock responses for different API endpoints
 nock('https://api.github.com')
   .get('/users/sabitha-anasuri')
