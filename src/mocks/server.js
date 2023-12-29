@@ -1,4 +1,4 @@
-// src/mocks/handlers.js
+// src/mocks/server.js
 const nock = require('nock');
 
 // Define mock responses for different API endpoints
