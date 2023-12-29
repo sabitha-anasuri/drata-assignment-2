@@ -10,21 +10,21 @@ describe('GitHub User API Tests', () => {
 
   // Green Path Tests
   test('Fetches user details successfully', async () => {
-    const response = await fetch('https://api.github.com/users/sabitha-anasuri');
+    const response = await fetch('https://api.drata.com/users/sabitha');
     const user = await response.json();
 
-    expect(user.login).to.equal('sabitha-anasuri');
+    expect(user.login).to.equal('sabitha');
     expect(user.plan.name).to.equal('Pro');
   });
 
   // Error Handling Tests
   test('Handles 404 error for non-existent user', async () => {
-    nock('https://api.github.com')
+    nock('https://api.drata.com')
       .get('/users/not-found')
       .reply(404);
 
     try {
-      await fetch('https://api.github.com/users/not-found');
+      await fetch('https://api.drata.com/users/not-found');
       throw new Error('Should have thrown an error');
     } catch (error) {
       expect(error.response.status).to.equal(404);
@@ -33,12 +33,12 @@ describe('GitHub User API Tests', () => {
 
   // Edge Cases
   test('Handles unexpected response structure gracefully', async () => {
-    nock('https://api.github.com')
+    nock('https://api.drata.com')
       .get('/users/unexpected')
       .reply(200, { foo: 'bar' }); // Unexpected response structure
 
     try {
-      await fetch('https://api.github.com/users/unexpected');
+      await fetch('https://api.drata.com/users/unexpected');
       throw new Error('Should have thrown an error');
     } catch (error) {
       expect(error.message).to.include('Unexpected response format');
