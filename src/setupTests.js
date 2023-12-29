@@ -1,7 +1,7 @@
 // src/setupTests.js
 
 test('Drata users checking test case', async () => {
-  nock('https://api.drata.com')
+  nock('https://api.demo.drata.com')
     .get('/users')
     .reply(200, [
       { id: 1, name: 'sabitha' }
